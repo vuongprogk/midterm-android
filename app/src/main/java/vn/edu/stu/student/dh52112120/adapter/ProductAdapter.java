@@ -2,6 +2,8 @@ package vn.edu.stu.student.dh52112120.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,12 +50,13 @@ public class ProductAdapter extends ArrayAdapter<Product> {
 
         // Set the data
         tvId.setText(String.valueOf(currentProduct.getId()));
-        tvName.setText(currentProduct.getName());
-        tvCategory.setText(currentProduct.getCategory().getName());
+        tvName.setText(currentProduct.getProductName());
+        tvCategory.setText(String.valueOf(currentProduct.getCategoryId()));
 
         // Set the image
-        if (currentProduct.getImage() != null) {
-            ivProduct.setImageBitmap(currentProduct.getImage());
+        if (currentProduct.getImageUrl() != null) {
+            Bitmap bitmap = BitmapFactory.decodeFile(currentProduct.getImageUrl());
+            ivProduct.setImageBitmap(bitmap);
         } else {
             // Set a default image if no image is available
             ivProduct.setImageResource(R.drawable.default_product_image);

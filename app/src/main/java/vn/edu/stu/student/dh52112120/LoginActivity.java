@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         if (username.equals("ace") && password.equals("password")) {
             // Successful login
             Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(LoginActivity.this, ListProduct.class);
+            Intent intent = new Intent(LoginActivity.this, ListCategory.class);
             startActivity(intent);
         } else {
             // Failed login

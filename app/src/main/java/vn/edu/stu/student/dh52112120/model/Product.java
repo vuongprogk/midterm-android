@@ -1,25 +1,21 @@
 package vn.edu.stu.student.dh52112120.model;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
+import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 
 public class Product implements Serializable {
-    private  int id;
-    private String name;
-    private Category category;
-    private Bitmap image;
-    private float price;
-    private String describe;
+    private int id;
+    private String productName;
+    private int categoryId;
+    private String imageUrl; // Changed from String image
+    private double price;
+    private String description;
 
     public Product() {
-    }
 
-    public Product(int id, String name, Category category, Bitmap image) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.image = image;
     }
 
     public int getId() {
@@ -30,52 +26,54 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public Category getCategory() {
-        return category;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public Bitmap getImage() {
-        return image;
-    }
 
-    public void setImage(Bitmap image) {
-        this.image = image;
-    }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Product(int id, String name, Category category, Bitmap image, float price, String describe) {
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Product(int id, String productName, int categoryId, String imageUrl, double price, String description) {
         this.id = id;
-        this.name = name;
-        this.category = category;
-        this.image = image;
+        this.productName = productName;
+        this.categoryId = categoryId;
+        this.imageUrl = imageUrl;
         this.price = price;
-        this.describe = describe;
+        this.description = description;
     }
 }

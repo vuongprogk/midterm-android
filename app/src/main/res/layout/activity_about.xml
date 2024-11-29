@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".About">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0pt"
+            android:layout_height="wrap_content"
+            android:layout_weight=".22"
+            android:text="Họ và tên"
+            android:textSize="10pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0pt"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:text="Trần Đức Vượng"
+            android:textSize="10pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0pt"
+            android:layout_height="wrap_content"
+            android:layout_weight=".22"
+            android:text="Lớp"
+            android:textSize="10pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0pt"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:text="D21_TH11"
+            android:textSize="10pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0pt"
+            android:layout_height="wrap_content"
+            android:layout_weight=".22"
+            android:text="MSSV"
+            android:textSize="10pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0pt"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:text="DH52112120"
+            android:textSize="10pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0pt"
+            android:layout_height="wrap_content"
+            android:layout_weight=".22"
+            android:text="Email"
+            android:textSize="10pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0pt"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:text="dh52112120@student.stu.edu.vn"
+            android:textSize="8pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0pt"
+            android:layout_height="wrap_content"
+            android:layout_weight=".22"
+            android:text="SDT"
+            android:textSize="10pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0pt"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:text="0944149939"
+            android:id="@+id/tv_phone"
+            android:textSize="8pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10pt"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_dial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10pt"
+            android:text="Dial" />
+        <Button
+            android:id="@+id/btn_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10pt"
+            android:layout_weight="1"
+            android:text="Open map" />
+    </LinearLayout>
+</LinearLayout>
