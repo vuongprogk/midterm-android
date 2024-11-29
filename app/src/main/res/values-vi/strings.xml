@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quản lý sản phẩm</string>
+    <string name="login">Đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="username">Người dùng</string>
+    <string name="category_name">Tên phân loại</string>
+    <string name="category_information">Thông tin phân loai</string>
+    <string name="btn_save">Lưu</string>
+    <string name="title_activity_maps">Bản đồ</string>
+    <string name="delete">Xoá</string>
+    <string name="update">Cập nhật</string>
+    <string name="add">Thêm</string>
+    <string name="select_image">Chọn hinh</string>
+    <string name="product_name">Tên sản phẩm</string>
+    <string name="price">Giá</string>
+    <string name="add_product">Thêm sản phẩm</string>
+    <string name="modified_product">Cập nhật sản phẩm</string>
+    <string name="full_name">Họ và tên</string>
+    <string name="grade">Lớp</string>
+    <string name="student_id">MSSV</string>
+    <string name="email">Email</string>
+    <string name="phone_number">SDT</string>
+    <string name="dial">Gọi</string>
+    <string name="open_map">Mở bản đồ</string>
+    <string name="description">Mô tả</string>
+    <string name="category_id">Mã phân loại</string>
+    <string name="product_id">Mã sản phẩm</string>
+    <string name="miss_field">Vui lòng điền tất cả trường</string>
+    <string name="invalid_price">Giá không hợp lệ</string>
+    <string name="storage_permission">Bộ nhớ từ chối truy cập</string>
+    <string name="login_success">Đăng nhập thành công!</string>
+    <string name="login_fail">Sai người dung hoặc mật khẩu</string>
+    <string name="no_category">Không tồn tại danh mục, vui lòng tạo danh mục trước</string>
+    <string name="title_delete_category">Xoá danh mục</string>
+    <string name="delete_category_message">Bạn có chắc xoá danh mục này không?</string>
+    <string name="cancel">Huỷ</string>
+    <string name="product_save_success">Sản phẩm được lưu thành công</string>
+    <string name="product_save_fail">Sản phẩm lưu that bại</string>
+    <string name="check_category">Vui lòng chọn 1 danh mục để cập nhật</string>
+    <string name="check_category_delete">Vui lòng chọn 1 danh mục để xoá</string>
+    <string name="title_delete_product">Xoá sản phẩm</string>
+    <string name="delete_fail">Xoá danh mục thất bại.</string>
+    <string name="delete_product_message">Bạn có chắc xoá sản phẩm này không?</string>
+</resources>

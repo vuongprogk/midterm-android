@@ -81,7 +81,7 @@ public class ListCategory extends AppCompatActivity {
             if (selected_category != null) {
                 processUpdate(selected_category);
             } else {
-                Toast.makeText(this, "Please select a product to update", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.check_category, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -91,7 +91,7 @@ public class ListCategory extends AppCompatActivity {
 //                deleteProduct(selectedCategory);
                 confirmDeleteProduct(selected_category);
             } else {
-                Toast.makeText(this, "Please select a product to delete", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.check_category_delete, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -101,9 +101,9 @@ public class ListCategory extends AppCompatActivity {
     }
     private void confirmDeleteProduct(final Category category) {
         new AlertDialog.Builder(this)
-                .setTitle("Delete Product")
-                .setMessage("Are you sure you want to delete this category?")
-                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                .setTitle(R.string.title_delete_category)
+                .setMessage(R.string.delete_category_message)
+                .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Delete product from database
@@ -114,12 +114,12 @@ public class ListCategory extends AppCompatActivity {
                             category_list.remove(category);
                             adapter.notifyDataSetChanged();
                         }else {
-                            Toast.makeText(getApplicationContext(), "Delete category fail.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), R.string.delete_fail, Toast.LENGTH_SHORT).show();
                         }
                         updateText("");
                     }
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(R.string.cancel, null)
                 .show();
     }
     private void updateViewData(int position) {
@@ -142,7 +142,7 @@ public class ListCategory extends AppCompatActivity {
     private void processAdd() {
         String name = edt_category_name.getText().toString();
         if (name.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.miss_field, Toast.LENGTH_SHORT).show();
             return;
         }
         Category category = new Category();

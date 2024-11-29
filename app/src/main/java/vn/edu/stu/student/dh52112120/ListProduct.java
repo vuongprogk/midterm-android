@@ -89,7 +89,7 @@ public class ListProduct extends AppCompatActivity {
 
     private void processUpdate() {
         if (dbHelper.getAllCategories().isEmpty()) {
-            Toast.makeText(ListProduct.this, "No category found, please add category first", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ListProduct.this, R.string.no_category, Toast.LENGTH_SHORT).show();
             return;
         }
         Intent editIntent = new Intent(ListProduct.this, UpsertViewProduct.class);
@@ -99,7 +99,7 @@ public class ListProduct extends AppCompatActivity {
 
     private void processAdd() {
         if (dbHelper.getAllCategories().isEmpty()) {
-            Toast.makeText(ListProduct.this, "No category found, please add category first", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ListProduct.this, R.string.no_category, Toast.LENGTH_SHORT).show();
             return;
         }
         Intent editIntent = new Intent(ListProduct.this, UpsertViewProduct.class);
@@ -114,9 +114,9 @@ public class ListProduct extends AppCompatActivity {
 
     private void confirmDeleteProduct(final Product product) {
         new AlertDialog.Builder(this)
-                .setTitle("Delete Product")
-                .setMessage("Are you sure you want to delete this product?")
-                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                .setTitle(R.string.title_delete_product)
+                .setMessage(R.string.delete_product_message)
+                .setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Delete product from database
@@ -129,7 +129,7 @@ public class ListProduct extends AppCompatActivity {
                         }
                     }
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(R.string.cancel, null)
                 .show();
     }
 
@@ -168,9 +168,9 @@ public class ListProduct extends AppCompatActivity {
                         Product product = (Product) o.getData().getSerializableExtra("product");
                         long result = dbHelper.addProduct(product);
                         if (result > 0) {
-                            Toast.makeText(ListProduct.this, "Product saved successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), R.string.product_save_success, Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(ListProduct.this, "Failed to save product", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), R.string.product_save_fail, Toast.LENGTH_SHORT).show();
                         }
 
                     } else if (o.getResultCode() == REQUEST_EDIT_PRODUCT) {

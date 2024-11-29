@@ -158,7 +158,7 @@ public class UpsertViewProduct extends AppCompatActivity {
         int categoryId = selectedCategory.getId();
 
         if (name.isEmpty() || priceStr.isEmpty() || description.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.miss_field, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -166,7 +166,7 @@ public class UpsertViewProduct extends AppCompatActivity {
         try {
             price = Double.parseDouble(priceStr);
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Invalid price", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.invalid_price, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -257,7 +257,7 @@ public class UpsertViewProduct extends AppCompatActivity {
             if (grantResults.length > 0 &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             } else {
-                Toast.makeText(this, "Storage permission denied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.storage_permission, Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -41,12 +41,12 @@ public class LoginActivity extends AppCompatActivity {
         // Check for predefined credentials
         if (username.equals("ace") && password.equals("password")) {
             // Successful login
-            Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, R.string.login_success, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(LoginActivity.this, ListCategory.class);
             startActivity(intent);
         } else {
             // Failed login
-            Toast.makeText(LoginActivity.this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, R.string.login_fail, Toast.LENGTH_SHORT).show();
         }
     }
 

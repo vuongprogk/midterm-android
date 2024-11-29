@@ -16,7 +16,7 @@
             android:layout_width="0pt"
             android:layout_height="wrap_content"
             android:layout_weight=".22"
-            android:text="Họ và tên"
+            android:text="@string/full_name"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
             android:layout_width="0pt"
             android:layout_height="wrap_content"
             android:layout_weight=".22"
-            android:text="Lớp"
+            android:text="@string/grade"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
             android:layout_width="0pt"
             android:layout_height="wrap_content"
             android:layout_weight=".22"
-            android:text="MSSV"
+            android:text="@string/student_id"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -79,7 +79,7 @@
             android:layout_width="0pt"
             android:layout_height="wrap_content"
             android:layout_weight=".22"
-            android:text="Email"
+            android:text="@string/email"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -100,7 +100,7 @@
             android:layout_width="0pt"
             android:layout_height="wrap_content"
             android:layout_weight=".22"
-            android:text="SDT"
+            android:text="@string/phone_number"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -126,13 +126,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10pt"
-            android:text="Dial" />
+            android:text="@string/dial" />
         <Button
             android:id="@+id/btn_map"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10pt"
             android:layout_weight="1"
-            android:text="Open map" />
+            android:text="@string/open_map" />
     </LinearLayout>
 </LinearLayout>
