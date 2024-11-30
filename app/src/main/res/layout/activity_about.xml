@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context=".About">
 
     <LinearLayout
@@ -105,11 +106,11 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_phone"
             android:layout_width="0pt"
             android:layout_height="wrap_content"
             android:layout_weight=".6"
             android:text="0944149939"
-            android:id="@+id/tv_phone"
             android:textSize="8pt" />
     </LinearLayout>
 
@@ -124,9 +125,10 @@
             android:id="@+id/btn_dial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_margin="10pt"
+            android:layout_weight="1"
             android:text="@string/dial" />
+
         <Button
             android:id="@+id/btn_map"
             android:layout_width="match_parent"
@@ -134,5 +136,16 @@
             android:layout_margin="10pt"
             android:layout_weight="1"
             android:text="@string/open_map" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_about"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 </LinearLayout>
