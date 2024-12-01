@@ -152,6 +152,16 @@
             android:text="@string/dial"
             android:textColor="@color/text"
             android:textColorHint="@color/text" />
+        <Button
+            android:id="@+id/btn_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10pt"
+            android:layout_weight="1"
+            android:backgroundTint="@color/button"
+            android:text="@string/call"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text" />
 
         <Button
             android:id="@+id/btn_map"

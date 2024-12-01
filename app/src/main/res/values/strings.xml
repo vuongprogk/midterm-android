@@ -46,4 +46,5 @@
     <string name="list_product">List Product</string>
     <string name="about">About</string>
     <string name="list_category">List Category</string>
+    <string name="call" >Call</string>
 </resources>

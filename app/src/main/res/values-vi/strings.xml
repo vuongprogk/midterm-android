@@ -47,4 +47,5 @@
     <string name="list_product">Danh sách sản phẩm</string>
     <string name="about">Chi tiết</string>
     <string name="list_category">Danh sách danh mục</string>
+    <string name="call" >Gọi</string>
 </resources>
