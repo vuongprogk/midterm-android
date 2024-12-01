@@ -4,13 +4,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical"
-
     tools:context=".About">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:orientation="horizontal">
 
         <TextView
@@ -18,6 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".22"
             android:text="@string/full_name"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -26,6 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".6"
             android:text="Trần Đức Vượng"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
             android:textSize="10pt" />
     </LinearLayout>
 
@@ -39,6 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".22"
             android:text="@string/grade"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -47,6 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".6"
             android:text="D21_TH11"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
             android:textSize="10pt" />
     </LinearLayout>
 
@@ -60,6 +69,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".22"
             android:text="@string/student_id"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -68,6 +79,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".6"
             android:text="DH52112120"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
             android:textSize="10pt" />
     </LinearLayout>
 
@@ -81,6 +94,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".22"
             android:text="@string/email"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -89,6 +104,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".6"
             android:text="dh52112120@student.stu.edu.vn"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
             android:textSize="8pt" />
     </LinearLayout>
 
@@ -102,6 +119,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".22"
             android:text="@string/phone_number"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -111,6 +130,8 @@
             android:layout_height="wrap_content"
             android:layout_weight=".6"
             android:text="0944149939"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
             android:textSize="8pt" />
     </LinearLayout>
 
@@ -127,7 +148,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10pt"
             android:layout_weight="1"
-            android:text="@string/dial" />
+            android:backgroundTint="@color/button"
+            android:text="@string/dial"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text" />
 
         <Button
             android:id="@+id/btn_map"
@@ -135,7 +159,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10pt"
             android:layout_weight="1"
-            android:text="@string/open_map" />
+            android:backgroundTint="@color/button"
+            android:text="@string/open_map"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text" />
     </LinearLayout>
 
     <LinearLayout

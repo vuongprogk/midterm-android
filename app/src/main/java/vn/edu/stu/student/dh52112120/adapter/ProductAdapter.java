@@ -1,7 +1,7 @@
 package vn.edu.stu.student.dh52112120.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -17,10 +17,13 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 import vn.edu.stu.student.dh52112120.R;
+import vn.edu.stu.student.dh52112120.dbhelper.DatabaseHelper;
+import vn.edu.stu.student.dh52112120.model.Category;
 import vn.edu.stu.student.dh52112120.model.Product;
 
 
 public class ProductAdapter extends ArrayAdapter<Product> {
+    DatabaseHelper helper;
     private Activity context;
     private int res;
     private List<Product> productList;
@@ -30,14 +33,16 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         this.context = context;
         this.res = resource;
         this.productList = objects;
+        helper = new DatabaseHelper(context);
     }
 
+    @SuppressLint("DefaultLocale")
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // Inflate the custom layout
         LayoutInflater inflater = this.context.getLayoutInflater();
-        View view = inflater.inflate(this.res,null);
+        View view = inflater.inflate(this.res, null);
 
         // Get references to the views in the layout
         TextView tvId = view.findViewById(R.id.tv_product_id);
@@ -49,9 +54,14 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         Product currentProduct = productList.get(position);
 
         // Set the data
-        tvId.setText(String.valueOf(currentProduct.getId()));
-        tvName.setText(currentProduct.getProductName());
-        tvCategory.setText(String.valueOf(currentProduct.getCategoryId()));
+        tvId.setText(String.format("%s %d", tvId.getText().toString(), currentProduct.getId()));
+        tvName.setText(String.format("%s %s", tvName.getText().toString(), currentProduct.getProductName()));
+        Category category = helper.getCategoryById(currentProduct.getCategoryId());
+        if(category != null){
+            tvCategory.setText(String.format("%s %s", tvCategory.getText().toString(), category.getName()));
+        }else {
+            tvCategory.setText(R.string.not_found);
+        }
 
         // Set the image
         if (currentProduct.getImageUrl() != null) {

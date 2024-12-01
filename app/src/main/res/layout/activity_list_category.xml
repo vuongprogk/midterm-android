@@ -5,17 +5,22 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".ListCategory">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_category"
         android:layout_width="0pt"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/background"
         android:minHeight="?attr/actionBarSize"
+        android:textColorHint="@color/text"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/text" />
+
     <TextView
         android:id="@+id/tv_title_category"
         android:layout_width="match_parent"
@@ -23,11 +28,12 @@
         android:gravity="center"
         android:text="@string/category_information"
         android:textAllCaps="true"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
         android:textSize="13pt"
-        app:layout_constraintTop_toBottomOf="@+id/tool_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-       />
+        app:layout_constraintTop_toBottomOf="@+id/tool_category" />
 
     <TextView
         android:id="@+id/tv_name_category"
@@ -35,6 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20pt"
         android:text="@string/category_name"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
         android:textSize="10pt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title_category" />
@@ -43,6 +51,8 @@
         android:id="@+id/edt_category_name"
         android:layout_width="0pt"
         android:layout_height="wrap_content"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
         app:layout_constraintBottom_toBottomOf="@+id/tv_name_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_name_category"
@@ -65,7 +75,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
-            android:text="@string/add" />
+            android:backgroundTint="@color/button"
+            android:text="@string/add"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text" />
 
         <Button
             android:id="@+id/btn_update"
@@ -74,7 +87,10 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
-            android:text="@string/update" />
+            android:backgroundTint="@color/button"
+            android:text="@string/update"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text" />
 
         <Button
             android:id="@+id/btn_delete"
@@ -82,7 +98,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_weight="1"
-            android:text="@string/delete" />
+            android:backgroundTint="@color/button"
+            android:text="@string/delete"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text" />
 
     </LinearLayout>
 

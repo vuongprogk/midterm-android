@@ -9,8 +9,11 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,7 +42,8 @@ import vn.edu.stu.student.dh52112120.model.Product;
 
 public class UpsertViewProduct extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
-
+    Category selectedCategory;
+    List<Category> categories;
     private EditText etProductName, etPrice, etDescription;
     private Spinner spinnerCategory;
     private ImageView ivProductImage;
@@ -96,8 +100,18 @@ public class UpsertViewProduct extends AppCompatActivity {
             Bitmap bitmap = BitmapFactory.decodeFile(existingProduct.getImageUrl());
             ivProductImage.setImageBitmap(bitmap);
 
-        }else {
+        } else {
             btnSave.setEnabled(false);
+        }
+
+        // Set existing category if editing
+        if (existingProduct != null) {
+            for (int i = 0; i < categories.size(); i++) {
+                if (categories.get(i).getId() == existingProduct.getCategoryId()) {
+                    spinnerCategory.setSelection(i);
+                    break;
+                }
+            }
         }
     }
 
@@ -108,6 +122,20 @@ public class UpsertViewProduct extends AppCompatActivity {
         // Save button listener
         btnSave.setOnClickListener(v -> saveProduct(false));
         btnAdd.setOnClickListener(v -> saveProduct(true));
+        spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i > 0) {
+
+                    selectedCategory = (Category) adapterView.getItemAtPosition(i);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                selectedCategory = (Category) adapterView.getItemAtPosition(1);
+            }
+        });
     }
 
     private void addControls() {
@@ -121,26 +149,17 @@ public class UpsertViewProduct extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSave);
         btnAdd = findViewById(R.id.btnAdd);
 
-        List<Category> categories = dbHelper.getAllCategories();
+        categories = dbHelper.getAllCategories();
 
         // Create adapter for category IDs
         ArrayAdapter<Category> adapter = new ArrayAdapter<>(
                 this,
-                android.R.layout.simple_spinner_item,
+                R.layout.sipnner_item,
                 categories
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategory.setAdapter(adapter);
 
-        // Set existing category if editing
-        if (existingProduct != null) {
-            for (int i = 0; i < categories.size(); i++) {
-                if (categories.get(i).getId() == existingProduct.getCategoryId()) {
-                    spinnerCategory.setSelection(i);
-                    break;
-                }
-            }
-        }
     }
 
     private void openImagePicker() {
@@ -154,9 +173,8 @@ public class UpsertViewProduct extends AppCompatActivity {
         String name = etProductName.getText().toString().trim();
         String priceStr = etPrice.getText().toString().trim();
         String description = etDescription.getText().toString().trim();
-        Category selectedCategory = (Category) spinnerCategory.getSelectedItem();
         int categoryId = selectedCategory.getId();
-
+        Log.e("CATEGORY", String.valueOf(selectedCategory.getId()));
         if (name.isEmpty() || priceStr.isEmpty() || description.isEmpty()) {
             Toast.makeText(this, R.string.miss_field, Toast.LENGTH_SHORT).show();
             return;
@@ -178,7 +196,7 @@ public class UpsertViewProduct extends AppCompatActivity {
         if (!filePath.isEmpty()) {
 
             product.setImageUrl(filePath);
-        }else {
+        } else if (!(existingProduct == null)) {
             product.setImageUrl(existingProduct.getImageUrl());
         }
 

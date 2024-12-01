@@ -41,4 +41,9 @@
     <string name="title_delete_product">Delete Product</string>
     <string name="delete_fail">Delete category fail.</string>
     <string name="delete_product_message">Are you sure you want to delete this product?</string>
+    <string name="not_found">Category Name not found!</string>
+    <string name="product_information">Product Information</string>
+    <string name="list_product">List Product</string>
+    <string name="about">About</string>
+    <string name="list_category">List Category</string>
 </resources>

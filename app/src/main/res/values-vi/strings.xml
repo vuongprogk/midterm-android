@@ -5,7 +5,7 @@
     <string name="password">Mật khẩu</string>
     <string name="username">Người dùng</string>
     <string name="category_name">Tên phân loại</string>
-    <string name="category_information">Thông tin phân loai</string>
+    <string name="category_information">Thông tin phân loại</string>
     <string name="btn_save">Lưu</string>
     <string name="title_activity_maps">Bản đồ</string>
     <string name="delete">Xoá</string>
@@ -42,4 +42,9 @@
     <string name="title_delete_product">Xoá sản phẩm</string>
     <string name="delete_fail">Xoá danh mục thất bại.</string>
     <string name="delete_product_message">Bạn có chắc xoá sản phẩm này không?</string>
+    <string name="not_found">Tên danh mục không tìm thấy!</string>
+    <string name="product_information">Thông tin sản phẩm</string>
+    <string name="list_product">Danh sách sản phẩm</string>
+    <string name="about">Chi tiết</string>
+    <string name="list_category">Danh sách danh mục</string>
 </resources>

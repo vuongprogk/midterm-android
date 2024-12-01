@@ -137,7 +137,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_PRODUCT_NAME, product.getProductName());
-        values.put(KEY_PRODUCT_CATEGORY_ID, product.getId());
+        values.put(KEY_PRODUCT_CATEGORY_ID, product.getCategoryId());
 
         values.put(KEY_PRODUCT_IMAGE, product.getImageUrl());
 
@@ -205,7 +205,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_PRODUCT_NAME, product.getProductName());
-        values.put(KEY_PRODUCT_CATEGORY_ID, product.getId());
+        values.put(KEY_PRODUCT_CATEGORY_ID, product.getCategoryId());
         values.put(KEY_PRODUCT_IMAGE, product.getImageUrl());
         values.put(KEY_PRODUCT_PRICE, product.getPrice());
         values.put(KEY_PRODUCT_DESCRIPTION, product.getDescription());
