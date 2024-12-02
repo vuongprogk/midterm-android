@@ -1,5 +1,6 @@
 package vn.edu.stu.student.dh52112120;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,12 +10,10 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,6 +35,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.List;
 
+import vn.edu.stu.student.dh52112120.adapter.SpinnerAdapter;
 import vn.edu.stu.student.dh52112120.dbhelper.DatabaseHelper;
 import vn.edu.stu.student.dh52112120.model.Category;
 import vn.edu.stu.student.dh52112120.model.Product;
@@ -133,7 +133,7 @@ public class UpsertViewProduct extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                selectedCategory = (Category) adapterView.getItemAtPosition(1);
+                selectedCategory = (Category) adapterView.getItemAtPosition(0);
             }
         });
     }
@@ -152,8 +152,8 @@ public class UpsertViewProduct extends AppCompatActivity {
         categories = dbHelper.getAllCategories();
 
         // Create adapter for category IDs
-        ArrayAdapter<Category> adapter = new ArrayAdapter<>(
-                this,
+        SpinnerAdapter adapter = new SpinnerAdapter(
+                UpsertViewProduct.this,
                 R.layout.sipnner_item,
                 categories
         );
@@ -173,8 +173,10 @@ public class UpsertViewProduct extends AppCompatActivity {
         String name = etProductName.getText().toString().trim();
         String priceStr = etPrice.getText().toString().trim();
         String description = etDescription.getText().toString().trim();
+        if (selectedCategory == null) {
+            selectedCategory = (Category) spinnerCategory.getSelectedItem();
+        }
         int categoryId = selectedCategory.getId();
-        Log.e("CATEGORY", String.valueOf(selectedCategory.getId()));
         if (name.isEmpty() || priceStr.isEmpty() || description.isEmpty()) {
             Toast.makeText(this, R.string.miss_field, Toast.LENGTH_SHORT).show();
             return;
@@ -257,11 +259,11 @@ public class UpsertViewProduct extends AppCompatActivity {
 
     private void checkStoragePermission() {
         if (ContextCompat.checkSelfPermission(getApplicationContext(),
-                android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
 
-            ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE},
+            ActivityCompat.requestPermissions(UpsertViewProduct.this,
+                    new String[]{Manifest.permission.MANAGE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.READ_MEDIA_IMAGES},
                     PERMISSION_REQUEST_CODE);
         }
     }
@@ -274,6 +276,7 @@ public class UpsertViewProduct extends AppCompatActivity {
         if (requestCode == PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                return;
             } else {
                 Toast.makeText(this, R.string.storage_permission, Toast.LENGTH_SHORT).show();
             }

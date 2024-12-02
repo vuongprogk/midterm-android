@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -94,11 +96,23 @@ public class ListCategory extends AppCompatActivity {
                 Toast.makeText(this, R.string.check_category_delete, Toast.LENGTH_SHORT).show();
             }
         });
+        listview_categories.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i >= 0 && i < category_list.size()) {
+
+                    Category category = category_list.get(i);
+                    confirmDeleteProduct(category);
+                }
+                return true;
+            }
+        });
 
         // Initially disable update and delete buttons
         btn_update.setEnabled(false);
         btn_delete.setEnabled(false);
     }
+
     private void confirmDeleteProduct(final Category category) {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.title_delete_category)
@@ -113,7 +127,7 @@ public class ListCategory extends AppCompatActivity {
                             // Remove from list and refresh adapter
                             category_list.remove(category);
                             adapter.notifyDataSetChanged();
-                        }else {
+                        } else {
                             Toast.makeText(getApplicationContext(), R.string.delete_fail, Toast.LENGTH_SHORT).show();
                         }
                         updateText("");
@@ -122,13 +136,14 @@ public class ListCategory extends AppCompatActivity {
                 .setNegativeButton(R.string.cancel, null)
                 .show();
     }
+
     private void updateViewData(int position) {
         if (position >= 0 & position < category_list.size()) {
             selected_category = category_list.get(position);
             updateText(selected_category.getName());
         }
     }
-    
+
 
     private void processUpdate(Category selectedCategory) {
         String name = edt_category_name.getText().toString();

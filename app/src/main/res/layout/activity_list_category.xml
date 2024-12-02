@@ -15,7 +15,7 @@
         android:background="@color/background"
         android:minHeight="?attr/actionBarSize"
         android:textColorHint="@color/text"
-        android:theme="?attr/actionBarTheme"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
